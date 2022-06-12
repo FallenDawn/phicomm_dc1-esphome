@@ -55,6 +55,7 @@ jobs:
           basename=`basename $f .yaml`
           echo "Compiling $f..."
           python3 -m esphome $basename.yaml compile
+          echo "python3 -m esphome $basename.yaml compile"
           find . -name 'firmware.bin'  -exec mv {} ${basename}_firmware.bin \;
           find . -name ${basename}_firmware.bin  -exec cp {} ${bin_output_path} \;
           echo "Done"
