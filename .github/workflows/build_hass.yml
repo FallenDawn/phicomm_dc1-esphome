@@ -1,4 +1,4 @@
-name: Build Firmware
+name: Build HASS
 
 on: 
   release:
@@ -50,14 +50,11 @@ jobs:
         cd /home/runner/work/phicomm_dc1-esphome/phicomm_dc1-esphome/yaml
 
         mkdir ${bin_output_path}
-        for f in *.yaml
-        do
-          basename=`basename $f .yaml`
-          echo "Compiling $f..."
-          python3 -m esphome $basename.yaml compile
-          find . -name 'firmware.bin'  -exec mv {} ${basename}_firmware.bin \;
-          find . -name ${basename}_firmware.bin  -exec cp {} ${bin_output_path} \;
-          echo "Done"
+        echo "Compiling $f..."
+        python3 -m esphome dc1_homeassistant_api.yaml compile
+        find . -name 'firmware.bin'  -exec mv {} dc1_homeassistant_api_firmware.bin \;
+        find . -name dc1_homeassistant_api.bin  -exec cp {} ${bin_output_path} \;
+        echo "Done"
         done
 
         ls -l /home/runner/work/bin/
