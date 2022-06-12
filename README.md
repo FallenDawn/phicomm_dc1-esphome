@@ -2,18 +2,7 @@
 
 ![image](https://github.com/Samuel-0-0/dc1-esphome-home-assistant/blob/master/image/%E4%BA%A7%E5%93%81%E5%9B%BE2.jpg?raw=true)
 
-## WHY
-众所周知的原因，斐讯服务器已经不能正常访问，插座的APP控制已经无法正常实现，需要有另外的方式实现插座的控制。
-
-已有的方法为内网劫持实现，具体可参考[这里](https://bbs.hassbian.com/thread-5637-1-1.html)。
-
 这次要实现的是通过一个自定义的固件，来完整实现DC1联网控制。
-
-## 为什么选择ESPHome制作固件
-[ESPHome](https://esphome.io/)是一个只需写几行配置文件就可以实现ESP8266/ESP32接入智能家居系统的强大开源项目。其极高的可扩展性和易用性是本次选择的主要原因。 
-
-## 已支持接入的开源智能家居平台
-以下排序随机，不分优劣。合适自己的就好。
 
 ### 1、Home Assistant
 Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多品牌的智能家居设备，可以轻松实现设备的语音控制、自动化等。
@@ -27,20 +16,6 @@ Home Assistant 是一款基于 Python 的智能家居开源系统，支持众多
 3. Home Assistant中[设置]-[集成]-添加esphome组件
 4. 输入dc1对应的ip地址
 5. 配置lovelace
-
-### 2、ioBroker
-ioBroker是基于nodejs的物联网的集成平台，为物联网设备提供核心服务、系统管理和统一操作方式。
-- [官方网站](http://www.iobroker.net)
-- [中文资料可以参考这里](https://doc.iobroker.cn/#/_zh-cn/)
-- [国内论坛](https://bbs.iobroker.cn)
-#### 接入方法
-ioBroker相关接入问题可以加QQ群776817275咨询
-
-### 3、其他支持mqtt的平台
-理论上来说，只要是支持mqtt的平台都可以实现接入。
-
-#### 接入方法
-添加对应的topic
 
 ## TODO LIST
 - [x] 分析硬件，获得主要芯片的资料
@@ -56,11 +31,6 @@ ioBroker相关接入问题可以加QQ群776817275咨询
 - [x] 断电记忆功能完善
 - [x] MQTT接入完善
 - [X] 迁移IO驱动以支持ESPHome 1.14 （感谢老妖）
-## 可能存在的BUG
-- 可能会出现开关重置的现象，大致是因为wifi模块重启造成，配置文件默认重启功能已禁用
-
-## 正在进行中
-- 如果没有其他特别的情况，本项目正式完结。
 
 # 开发过程回顾
 ## 1、已知的一些硬件资料
@@ -87,21 +57,3 @@ IO扩展芯片，具体型号暂时未知，经过逻辑分析仪的逻辑分析
 
 ### 主控制板背面
 ![image](https://github.com/Samuel-0-0/dc1-esphome-home-assistant/blob/master/image/%E4%B8%BB%E6%8E%A7%E5%88%B6%E6%9D%BF%E8%83%8C%E9%9D%A2_%E6%A0%87%E6%B3%A8.jpg?raw=true)
-
-## 致谢
-以下排名不分先后，为随机。
-- killadm：导出原始固件，提供WiFi芯片对比图，主控制板WiFi模块、U7移除后的PCB照片，U7逻辑分析数据采集
-- 老妖：U7驱动编写，U7逻辑分析
-- 实验幼儿园小二班扛把子：测试引脚走向
-- Heller、巴山耗子：初期资料整理
-- 风中的summer：提供清晰的电路板照片、拆机过程照片
-- OttoWinter：esphome的作者
-
-感谢各位使用本方法的玩家，欢迎加入QQ群776817275
-
-## 免责申明
-以上纯属个人爱好，因为使用上述方法造成的任何问题，不承担任何责任。
-
-部分图片来源于网络，如果涉及版权，请通知删除。
-
-trigger
