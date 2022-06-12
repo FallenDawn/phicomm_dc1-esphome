@@ -11,10 +11,11 @@ esphome:
 
 #--------------------- 只需要改这下面的内容 ---------------------
 substitutions:
+  config_version: 'v2022.6.12.001'
   #WiFi芯片版本，型号中带B的为csm64f02_b，不带B的为csm64f02
   board_model: esp01_1m
-  #设备名称(多个dc1改成不一样的)
-  device_name: phicomm_dc1
+  #设备名称（多个dc1改成不一样的，API接入和ESPHOME容器会识别这个作为名称显示）
+  device_name: power_3dprint_dc1
   #WiFi_SSID名称
   wifi_ssid: $device_name
   #WiFi密码
